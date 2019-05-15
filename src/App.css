@@ -15,3 +15,34 @@ h1 {
   font-size: calc(10px + 2vmin);
   color: white;
 }
+
+.searchBox {
+  padding-left: 5px;
+  border: 1px solid black;
+  min-width: 30vw;
+  border-radius: 10px;
+  box-shadow: 5px 5px 5px #707275;
+}
+
+h1 {
+  font-size: 82px;
+}
+
+#title {
+  transition: all ease-in-out 300ms;
+  font-size: 82px;
+  padding-bottom: 20px;
+}
+
+h1 {
+  padding: 0px;
+}
+
+.column {
+  display: flex;
+  flex-flow: row-wrap;
+}
+
+#title:hover {
+  transform: translate(0px, -10px);
+}
