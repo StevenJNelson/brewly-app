@@ -46,8 +46,14 @@ class BeerList extends Component {
           return (
             <div className="row" key={beer.id}>
               <div className="beerCard">
-                <h3 id="beerNameText"> {beer.name} </h3>
-                <p id="beerTaglineText"> {beer.tagline} </p>
+                <div className="beerInfo">
+                  <h3 id="beerNameText"> {beer.name} </h3>
+                  <p id="beerTaglineText"> {beer.tagline} </p>
+                </div>
+                <Button id="detailsButton" href="/beerdetails">
+                  {" "}
+                  Details{" "}
+                </Button>
               </div>
             </div>
           );

@@ -62,6 +62,7 @@ h1 {
 }
 
 .beerCard {
+  padding: 0px;
   display: flex;
   justify-content: left;
   width: 100%;
@@ -73,13 +74,33 @@ h1 {
   max-height: 20vh;
 }
 
+.beerInfo {
+  width: 90%;
+  display: flex;
+}
 #beerNameText {
+  width: 80%;
+  text-align: left;
+  display: flex;
+  overflow-wrap: break-word;
+  margin-right: auto;
   font-size: 30px;
 }
 
 #beerTaglineText {
+  text-align: left;
+  width: 80%;
   font-size: 25px;
   padding-left: 20px;
+  margin-right: 20px;
+}
+
+#detailsButton {
+  width: 10%;
+  height: 50%;
+  margin-left: auto;
+  margin-top: auto;
+  margin-bottom: auto;
 }
 #thumbnail {
   display: inline-block;
