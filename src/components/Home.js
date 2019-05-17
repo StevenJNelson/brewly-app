@@ -28,7 +28,7 @@ class Home extends Component {
         <header className="App-header">
           <h1 id="title"> Brewly </h1>
           <div className="column">
-            <h4> Get to know your beer. </h4>
+            <h4> Start typing to search our beers </h4>
           </div>
           <Form onSubmit={this.handleSubmit}>
             <FormGroup>
@@ -40,13 +40,10 @@ class Home extends Component {
                 name="searchCriteria"
               />
             </FormGroup>
-            <FormGroup>
-              <Button color="secondary" size="md" type="submit">
-                Search
-              </Button>
-              <BeerList search={this.state.search} />
-            </FormGroup>
           </Form>
+          <div className="resultsContainer">
+            <BeerList search={this.state.search} />
+          </div>
         </header>
       </div>
     );

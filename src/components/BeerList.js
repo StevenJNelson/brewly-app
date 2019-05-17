@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Axios from "axios";
-import Beer from "./Beer";
+import { Button } from "reactstrap";
 
 class BeerList extends Component {
   state = {
@@ -9,18 +9,48 @@ class BeerList extends Component {
   };
 
   async componentDidMount() {
+    /* let url = `https://api.punkapi.com/v2/beers?beer_name=${this.props.search}`;
+    await Axios.get(url).then(res => {
+      this.setState({ beers: res.data });
+    });
+    this.setState({ loaded: true });*/
+  }
+
+  async componentDidUpdate(prevProps) {
+    if (prevProps.search !== this.props.search && this.props.search !== "") {
+      let url = `https://api.punkapi.com/v2/beers?beer_name=${
+        this.props.search
+      }`;
+      await Axios.get(url)
+        .then(res => {
+          this.setState({ beers: res.data });
+        })
+        .catch(error => error);
+      this.setState({ loaded: true });
+    }
+  }
+
+  /*
+  async getResults() {
     let url = `https://api.punkapi.com/v2/beers?beer_name=${this.props.search}`;
     await Axios.get(url).then(res => {
       this.setState({ beers: res.data });
     });
     this.setState({ loaded: true });
-  }
+  }*/
 
   render() {
     return (
-      <div>
+      <div className="resultInfo">
         {this.state.beers.map(beer => {
-          return <p key={beer.id}> {beer.name} </p>;
+          return (
+            <div className="row" key={beer.id}>
+              <div className="beerCard">
+                <h3 id="beerNameText"> {beer.name} </h3>
+                <p id="beerTaglineText"> {beer.tagline} </p>
+              </div>
+            </div>
+          );
         })}
       </div>
     );
