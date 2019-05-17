@@ -40,26 +40,30 @@ class BeerList extends Component {
   }*/
 
   render() {
-    return (
-      <div className="resultInfo">
-        {this.state.beers.map(beer => {
-          return (
-            <div className="row" key={beer.id}>
-              <div className="beerCard">
-                <div className="beerInfo">
-                  <h3 id="beerNameText"> {beer.name} </h3>
-                  <p id="beerTaglineText"> {beer.tagline} </p>
+    if (this.props.search) {
+      return (
+        <div className="resultInfo">
+          {this.state.beers.map(beer => {
+            return (
+              <div className="row" key={beer.id}>
+                <div className="beerCard">
+                  <div className="beerInfo">
+                    <h3 id="beerNameText"> {beer.name} </h3>
+                    <p id="beerTaglineText"> {beer.tagline} </p>
+                  </div>
+                  <Button id="detailsButton" href="/beerdetails">
+                    {" "}
+                    Details{" "}
+                  </Button>
                 </div>
-                <Button id="detailsButton" href="/beerdetails">
-                  {" "}
-                  Details{" "}
-                </Button>
               </div>
-            </div>
-          );
-        })}
-      </div>
-    );
+            );
+          })}
+        </div>
+      );
+    } else {
+      return <div> </div>;
+    }
   }
 }
 export default BeerList;
