@@ -8,5 +8,9 @@ class BeerDetails extends React.Component {
     name: "",
     beers: []
   };
+
+  render() {
+    return <div>Test</div>;
+  }
 }
 export default BeerDetails;

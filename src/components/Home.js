@@ -1,6 +1,7 @@
 import React, { Component } from "react";
-import { Form, FormGroup, Input, Button } from "reactstrap";
+import { Form, FormGroup, Input } from "reactstrap";
 import BeerList from "./BeerList";
+import { FaBeer } from "react-icons/fa";
 
 class Home extends Component {
   constructor(props) {
@@ -26,9 +27,12 @@ class Home extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          <h1 id="title"> Brewly </h1>
+          <h1 id="title">
+            {" "}
+            Brewly <FaBeer id="beerIcon" />{" "}
+          </h1>
           <div className="column">
-            <h4> Start typing to search our beers </h4>
+            <h4> Start typing to search our beers. </h4>
           </div>
           <Form onSubmit={this.handleSubmit}>
             <FormGroup>
