@@ -5,7 +5,8 @@ class BeerDetails extends React.Component {
     super(props);
   }
   state = {
-    name: ""
+    name: "",
+    beers: []
   };
 }
 export default BeerDetails;
