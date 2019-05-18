@@ -30,6 +30,11 @@ class BeerList extends Component {
     }
   }
 
+  showDetails(beer) {
+    alert("test");
+    console.log(beer);
+  }
+
   /*
   async getResults() {
     let url = `https://api.punkapi.com/v2/beers?beer_name=${this.props.search}`;
@@ -51,7 +56,10 @@ class BeerList extends Component {
                     <h3 id="beerNameText"> {beer.name} </h3>
                     <p id="beerTaglineText"> {beer.tagline} </p>
                   </div>
-                  <Button id="detailsButton" href="/beerdetails">
+                  <Button
+                    id="detailsButton"
+                    onClick={this.showDetails.bind(this, beer)}
+                  >
                     {" "}
                     Details{" "}
                   </Button>
