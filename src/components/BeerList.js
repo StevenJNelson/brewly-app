@@ -31,7 +31,6 @@ class BeerList extends Component {
   }
 
   showDetails(beer) {
-    alert("test");
     console.log(beer);
   }
 
