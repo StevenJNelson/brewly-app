@@ -1,11 +1,7 @@
 import React from "react";
 import "../App.css";
-import { Button } from "reactstrap";
 
 class BeerDetails extends React.Component {
-  constructor(props) {
-    super(props);
-  }
   state = {
     name: "",
     beer: this.props.location.state.beer
