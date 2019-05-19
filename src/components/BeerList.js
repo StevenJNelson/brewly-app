@@ -48,39 +48,42 @@ class BeerList extends Component {
   }
 
   render() {
-    var searchPage = (
-      <div className="resultInfo">
-        {this.state.beers.map(beer => {
-          return (
-            <div className="row" key={beer.id}>
-              <div className="beerCard">
-                <div className="beerInfo">
-                  <h3 id="beerNameText"> {beer.name} </h3>
-                  <p id="beerTaglineText"> {beer.tagline} </p>
+    if (this.props.search) {
+      var searchPage = (
+        <div className="resultInfo">
+          {this.state.beers.map(beer => {
+            return (
+              <div className="row" key={beer.id}>
+                <div className="beerCard">
+                  <div className="beerInfo">
+                    <h3 id="beerNameText"> {beer.name} </h3>
+                    <p id="beerTaglineText"> {beer.tagline} </p>
+                  </div>
+
+                  <Button
+                    id="detailsButton"
+                    onClick={this.setRedirect.bind(this, beer)}
+                  >
+                    {" "}
+                    Details{" "}
+                  </Button>
+                  {this.renderRedirect()}
                 </div>
-
-                <Button
-                  id="detailsButton"
-                  //onClick={this.enableDetails.bind(this, beer)}
-                  onClick={this.setRedirect.bind(this, beer)}
-                >
-                  {" "}
-                  Details{" "}
-                </Button>
-                {this.renderRedirect()}
               </div>
-            </div>
-          );
-        })}
-      </div>
-    );
+            );
+          })}
+        </div>
+      );
 
-    return (
-      <div>
-        {this.state.isSearch ? searchPage : null}
-        {this.state.isDetails ? this.showDetails() : null}
-      </div>
-    );
+      return (
+        <div>
+          {this.state.isSearch ? searchPage : null}
+          {this.state.isDetails ? this.showDetails() : null}
+        </div>
+      );
+    } else {
+      return <div />;
+    }
   }
 }
 export default BeerList;

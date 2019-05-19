@@ -11,6 +11,12 @@ h1 {
   padding-bottom: 40px;
 }
 
+body,
+html,
+#root {
+  height: 100%;
+}
+
 .App-header {
   background-color: #efdb04;
   min-height: 100vh;
@@ -32,16 +38,13 @@ h1 {
 
 h1 {
   font-size: 62px;
+  padding: 0px;
 }
 
 #title {
   transition: all ease-in-out 300ms;
   font-size: 82px;
   padding-bottom: 20px;
-}
-
-h1 {
-  padding: 0px;
 }
 
 .column {
@@ -82,6 +85,7 @@ h1 {
 }
 
 .beerInfo {
+  min-width: 90%;
   width: 90%;
   display: flex;
 }
@@ -113,4 +117,45 @@ h1 {
   display: inline-block;
   max-height: 10vh;
   max-width: 10vw;
+}
+
+.detailsContainer {
+  padding-top: 50px;
+}
+
+.detailsContent {
+  display: flex;
+  flex-direction: row;
+  margin: auto;
+  text-align: center;
+  height: 100%;
+  width: 85vw;
+}
+
+.titleContainer {
+  width: 85vw;
+  margin: auto;
+}
+
+.statsContainer {
+  margin-left: auto;
+  margin-right: auto;
+  width: 85vw;
+  display: flex;
+}
+#detailsTitle {
+  font-size: 60px;
+}
+
+#beerPhoto {
+  float: left;
+  max-height: 300px;
+  max-width: 300px;
+}
+
+#detailsText {
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: auto;
+  max-width: 70%;
 }
