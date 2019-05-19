@@ -3,17 +3,16 @@ import Axios from "axios";
 import { Button } from "reactstrap";
 
 class BeerList extends Component {
-  state = {
-    beers: [],
-    loaded: false
-  };
+  constructor(props) {
+    super(props);
+    state = {
+      beers: [],
+      loaded: false,
+      isDetails: false,
+      isSearch: true
+    };
 
-  async componentDidMount() {
-    /* let url = `https://api.punkapi.com/v2/beers?beer_name=${this.props.search}`;
-    await Axios.get(url).then(res => {
-      this.setState({ beers: res.data });
-    });
-    this.setState({ loaded: true });*/
+    this.enableDetails = this.enableDetails.bind(this);
   }
 
   async componentDidUpdate(prevProps) {
@@ -30,18 +29,16 @@ class BeerList extends Component {
     }
   }
 
-  showDetails(beer) {
-    console.log(beer);
+  enableDetails() {
+    this.setState({
+      isDetails: true,
+      isSearch: false
+    });
   }
 
-  /*
-  async getResults() {
-    let url = `https://api.punkapi.com/v2/beers?beer_name=${this.props.search}`;
-    await Axios.get(url).then(res => {
-      this.setState({ beers: res.data });
-    });
-    this.setState({ loaded: true });
-  }*/
+  showDetails(beer) {
+    return <div> This is the details page. </div>;
+  }
 
   render() {
     if (this.props.search) {
