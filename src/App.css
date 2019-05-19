@@ -124,6 +124,7 @@ h1 {
 }
 
 .detailsContent {
+  font-size: 20px;
   display: flex;
   flex-direction: row;
   margin: auto;
@@ -142,9 +143,24 @@ h1 {
   margin-right: auto;
   width: 85vw;
   display: flex;
+  justify-content: flex-start;
 }
+#statItem {
+  padding-right: 20px;
+  font-size: 18px;
+  border: 2px solid black;
+  padding-left: 20px;
+  margin-right: 20px;
+  border-radius: 4px;
+  border-spacing: 15px;
+}
+
 #detailsTitle {
-  font-size: 60px;
+  font-size: 50px;
+}
+
+#detailsTagline {
+  font-size: 22px;
 }
 
 #beerPhoto {
@@ -154,8 +170,16 @@ h1 {
 }
 
 #detailsText {
-  margin-left: auto;
+  text-align: left;
+  margin-left: 90px;
+  margin-top: auto;
   margin-right: auto;
   margin-bottom: auto;
-  max-width: 70%;
+  max-width: 60%;
+}
+
+#backButton {
+  position: absolute;
+  bottom: 25px;
+  right: 55px;
 }

@@ -3,6 +3,9 @@ import "../App.css";
 import { Button } from "reactstrap";
 
 class BeerDetails extends React.Component {
+  constructor(props) {
+    super(props);
+  }
   state = {
     name: "",
     beer: this.props.location.state.beer
@@ -14,11 +17,12 @@ class BeerDetails extends React.Component {
       <div className="detailsContainer">
         <div className="titleContainer">
           <h2 id="detailsTitle"> {this.state.beer.name} </h2>
-          <p> {this.state.beer.tagline} </p>
+          <p id="detailsTagline"> {this.state.beer.tagline} </p>
         </div>
         <div className="statsContainer">
-          <p> First Brewed: {this.state.beer.first_brewed} </p>
-          <p> ABV: {this.state.beer.abv} </p>
+          <p id="statItem"> First Brewed: {this.state.beer.first_brewed} </p>
+          <p id="statItem"> ABV: {this.state.beer.abv}% </p>
+          <p id="statItem"> IBU: {this.state.beer.ibu} </p>
         </div>
         <div className="detailsContent">
           <img
@@ -27,8 +31,11 @@ class BeerDetails extends React.Component {
             alt={this.state.beer.name}
           />
           <p id="detailsText"> {this.state.beer.description} </p>
+          <a className="btn btn-secondary" id="backButton" href="/">
+            {" "}
+            Back to Search{" "}
+          </a>
         </div>
-        <a href="/"> Back </a>
       </div>
     );
   }
