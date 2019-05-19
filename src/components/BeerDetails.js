@@ -1,16 +1,13 @@
-import React, { Component } from "react";
+import React from "react";
 
 class BeerDetails extends React.Component {
-  constructor(props) {
-    super(props);
-  }
   state = {
     name: "",
-    beer: []
+    beer: this.props.location.state.beer
   };
 
   render() {
-    return <div>{this.beer.name}</div>;
+    return <div>Here are the beer deets.</div>;
   }
 }
 export default BeerDetails;

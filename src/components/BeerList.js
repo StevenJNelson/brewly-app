@@ -1,20 +1,37 @@
 import React, { Component } from "react";
 import Axios from "axios";
 import { Button } from "reactstrap";
+import { Redirect } from "react-router-dom";
 
 class BeerList extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      beers: [],
-      loaded: false,
-      isDetails: false,
-      isSearch: true,
-      beerInfo: []
-    };
+  state = {
+    beers: [],
+    loaded: false,
+    isDetails: false,
+    isSearch: true,
+    beerInfo: [],
+    redirect: false
+  };
 
-    this.enableDetails = this.enableDetails.bind(this);
+  setRedirect(beer) {
+    this.setState({
+      redirect: true,
+      beerInfo: beer
+    });
   }
+
+  renderRedirect = () => {
+    if (this.state.redirect) {
+      return (
+        <Redirect
+          to={{
+            pathname: "/beerdetails",
+            state: { beer: this.state.beerInfo }
+          }}
+        />
+      );
+    }
+  };
 
   async componentDidUpdate(prevProps) {
     if (prevProps.search !== this.props.search && this.props.search !== "") {
@@ -30,19 +47,6 @@ class BeerList extends Component {
     }
   }
 
-  enableDetails(beer) {
-    this.setState({
-      isDetails: true,
-      isSearch: false,
-      beerInfo: beer
-    });
-    console.log(beer);
-  }
-
-  showDetails(beer) {
-    return <div> This is the details page. </div>;
-  }
-
   render() {
     var searchPage = (
       <div className="resultInfo">
@@ -54,13 +58,16 @@ class BeerList extends Component {
                   <h3 id="beerNameText"> {beer.name} </h3>
                   <p id="beerTaglineText"> {beer.tagline} </p>
                 </div>
+
                 <Button
                   id="detailsButton"
-                  onClick={this.enableDetails.bind(this, beer)}
+                  //onClick={this.enableDetails.bind(this, beer)}
+                  onClick={this.setRedirect.bind(this, beer)}
                 >
                   {" "}
                   Details{" "}
                 </Button>
+                {this.renderRedirect()}
               </div>
             </div>
           );
