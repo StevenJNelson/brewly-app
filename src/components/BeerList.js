@@ -5,11 +5,12 @@ import { Button } from "reactstrap";
 class BeerList extends Component {
   constructor(props) {
     super(props);
-    state = {
+    this.state = {
       beers: [],
       loaded: false,
       isDetails: false,
-      isSearch: true
+      isSearch: true,
+      beerInfo: []
     };
 
     this.enableDetails = this.enableDetails.bind(this);
@@ -29,11 +30,13 @@ class BeerList extends Component {
     }
   }
 
-  enableDetails() {
+  enableDetails(beer) {
     this.setState({
       isDetails: true,
-      isSearch: false
+      isSearch: false,
+      beerInfo: beer
     });
+    console.log(beer);
   }
 
   showDetails(beer) {
@@ -41,33 +44,36 @@ class BeerList extends Component {
   }
 
   render() {
-    if (this.props.search) {
-      return (
-        <div className="resultInfo">
-          {this.state.beers.map(beer => {
-            return (
-              <div className="row" key={beer.id}>
-                <div className="beerCard">
-                  <div className="beerInfo">
-                    <h3 id="beerNameText"> {beer.name} </h3>
-                    <p id="beerTaglineText"> {beer.tagline} </p>
-                  </div>
-                  <Button
-                    id="detailsButton"
-                    onClick={this.showDetails.bind(this, beer)}
-                  >
-                    {" "}
-                    Details{" "}
-                  </Button>
+    var searchPage = (
+      <div className="resultInfo">
+        {this.state.beers.map(beer => {
+          return (
+            <div className="row" key={beer.id}>
+              <div className="beerCard">
+                <div className="beerInfo">
+                  <h3 id="beerNameText"> {beer.name} </h3>
+                  <p id="beerTaglineText"> {beer.tagline} </p>
                 </div>
+                <Button
+                  id="detailsButton"
+                  onClick={this.enableDetails.bind(this, beer)}
+                >
+                  {" "}
+                  Details{" "}
+                </Button>
               </div>
-            );
-          })}
-        </div>
-      );
-    } else {
-      return <div> </div>;
-    }
+            </div>
+          );
+        })}
+      </div>
+    );
+
+    return (
+      <div>
+        {this.state.isSearch ? searchPage : null}
+        {this.state.isDetails ? this.showDetails() : null}
+      </div>
+    );
   }
 }
 export default BeerList;

@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import Axios from "axios";
 
 class BeerDetails extends React.Component {
   constructor(props) {
@@ -7,15 +6,11 @@ class BeerDetails extends React.Component {
   }
   state = {
     name: "",
-    beers: []
+    beer: []
   };
 
   render() {
-    return (
-      <div>
-        <img src={this.beers.image} />
-      </div>
-    );
+    return <div>{this.beer.name}</div>;
   }
 }
 export default BeerDetails;
