@@ -10,14 +10,6 @@ class BeerDetails extends React.Component {
     beers: []
   };
 
-  async componentDidMount() {
-    let url = `https://api.punkapi.com/v2/beers?beer_name=${this.props.name}`;
-    await Axios.get(url).then(res => {
-      this.setState({ beers: res.data });
-    });
-    this.setState({ loaded: true });
-  }
-
   render() {
     return (
       <div>
