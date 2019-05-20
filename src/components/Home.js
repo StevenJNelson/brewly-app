@@ -42,6 +42,7 @@ class Home extends Component {
                 value={this.state.search}
                 onChange={this.handleChange}
                 name="searchCriteria"
+                autoComplete="off"
               />
             </FormGroup>
           </Form>

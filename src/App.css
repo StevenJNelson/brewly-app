@@ -188,4 +188,5 @@ h1 {
   position: absolute;
   bottom: 25px;
   right: 55px;
+  box-shadow: 2px 2px 2px #707275;
 }
