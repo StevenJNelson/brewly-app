@@ -10,7 +10,7 @@ Punk API: https://punkapi.com/documentation/v2
 ### To Run
 
 1. Run "npm i" to install missing node modules
-2. Run npm start to launch the application in your browser
+2. Run "npm start" to launch the application in your browser
 
 ### Design
 
@@ -19,8 +19,8 @@ Punk API: https://punkapi.com/documentation/v2
 - It renders a "Home" component that displays the title and search bar. When
   the user starts typing it uses the API's search feature to build an Axios GET request
   to the API, using the API's built in ability to search for beers by name.
-- When search results are displayed, a BeerList component is displayed that render all matching
+- When search results are displayed, a BeerList component is displayed that renders all matching
   beers.
-- When the user clicks Details, there is a redirect to the component BeerDetails which displays
-  the details of the selected beer including the Beer Name, Tagline, Description, First Brewed Date, ABV,
-  IBU, and Photo
+- When the user clicks the Details button on the beer they want to know more about, there 
+  is a redirect to the component BeerDetails which displays the details of the selected beer 
+  including the Beer Name, Tagline, Description, First Brewed Date, ABV, IBU, and Photo.
