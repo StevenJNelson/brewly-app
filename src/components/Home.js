@@ -20,7 +20,6 @@ class Home extends Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    console.log(this.state.search);
   }
 
   render() {

@@ -7,8 +7,6 @@ class BeerList extends Component {
   state = {
     beers: [],
     loaded: false,
-    isDetails: false,
-    isSearch: true,
     beerInfo: [],
     redirect: false
   };
@@ -49,7 +47,7 @@ class BeerList extends Component {
 
   render() {
     if (this.props.search) {
-      var searchPage = (
+      return (
         <div className="resultInfo">
           {this.state.beers.map(beer => {
             return (
@@ -72,13 +70,6 @@ class BeerList extends Component {
               </div>
             );
           })}
-        </div>
-      );
-
-      return (
-        <div>
-          {this.state.isSearch ? searchPage : null}
-          {this.state.isDetails ? this.showDetails() : null}
         </div>
       );
     } else {
